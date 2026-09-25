@@ -119,6 +119,7 @@
     .loader.hide {
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
     }
 
     .loader-inner {
@@ -1419,6 +1420,90 @@
 
 
     /* =========================================================
+       SOCIAL MEDIA — ADDED
+    ========================================================= */
+
+    .social-media {
+      margin-top: 22px;
+
+      background: white;
+
+      padding: 30px 34px;
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 15px 45px rgba(34,4,7,.07);
+
+      border: 1px solid var(--border);
+    }
+
+    .social-media h3 {
+      font-family: "Playfair Display", serif;
+
+      color: var(--maroon);
+
+      font-size: 1.55rem;
+
+      margin-bottom: 18px;
+    }
+
+    .social-links {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .social-link {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      min-height: 48px;
+
+      padding: 0 18px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(107,15,26,.06);
+
+      border: 1px solid rgba(107,15,26,.1);
+
+      color: var(--maroon-dark);
+
+      font-size: .84rem;
+
+      font-weight: 700;
+
+      transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+
+      background: var(--maroon);
+
+      color: white;
+
+      box-shadow:
+        0 12px 28px rgba(107,15,26,.18);
+    }
+
+    .social-icon {
+      font-size: 1.1rem;
+    }
+
+
+    /* =========================================================
        FOOTER
     ========================================================= */
 
@@ -1500,6 +1585,47 @@
 
     .footer-links a:hover {
       color: var(--gold-light);
+    }
+
+    .footer-social {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 12px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,.15);
+
+      color: var(--gold-light);
+
+      font-size: .95rem;
+
+      transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-3px);
+
+      background: var(--gold);
+
+      color: var(--maroon-deep);
     }
 
     .footer-bottom {
@@ -1881,6 +2007,19 @@
         padding: 25px;
       }
 
+      .social-media {
+        padding: 25px;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+
+      .social-link {
+        width: 100%;
+        justify-content: center;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1920,6 +2059,7 @@
   ======================================================== -->
 
   <div class="loader" id="loader">
+
     <div class="loader-inner">
 
       <img
@@ -1935,6 +2075,7 @@
       </div>
 
     </div>
+
   </div>
 
 
@@ -1981,11 +2122,13 @@
         />
 
         <div class="brand-name">
+
           Hameed Al Husseinie College
 
           <small>
             National School · Colombo
           </small>
+
         </div>
 
       </a>
@@ -1994,23 +2137,33 @@
       <ul class="desktop-nav">
 
         <li>
-          <a href="#about">About</a>
+          <a href="#about">
+            About
+          </a>
         </li>
 
         <li>
-          <a href="#heritage">Heritage</a>
+          <a href="#heritage">
+            Heritage
+          </a>
         </li>
 
         <li>
-          <a href="#timeline">Timeline</a>
+          <a href="#timeline">
+            Timeline
+          </a>
         </li>
 
         <li>
-          <a href="#campus">Campus</a>
+          <a href="#campus">
+            Campus
+          </a>
         </li>
 
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact">
+            Contact
+          </a>
         </li>
 
       </ul>
@@ -2059,27 +2212,39 @@
     <ul>
 
       <li>
-        <a href="#home">Home</a>
+        <a href="#home">
+          Home
+        </a>
       </li>
 
       <li>
-        <a href="#about">About</a>
+        <a href="#about">
+          About
+        </a>
       </li>
 
       <li>
-        <a href="#heritage">Heritage</a>
+        <a href="#heritage">
+          Heritage
+        </a>
       </li>
 
       <li>
-        <a href="#timeline">Timeline</a>
+        <a href="#timeline">
+          Timeline
+        </a>
       </li>
 
       <li>
-        <a href="#campus">Campus</a>
+        <a href="#campus">
+          Campus
+        </a>
       </li>
 
       <li>
-        <a href="#contact">Contact</a>
+        <a href="#contact">
+          Contact
+        </a>
       </li>
 
     </ul>
@@ -2146,7 +2311,9 @@
 
             <div class="hero-meta-item">
 
-              <strong>1884</strong>
+              <strong>
+                1884
+              </strong>
 
               <span>
                 Founded
@@ -2157,7 +2324,9 @@
 
             <div class="hero-meta-item">
 
-              <strong>1991</strong>
+              <strong>
+                1991
+              </strong>
 
               <span>
                 College Status
@@ -2168,7 +2337,9 @@
 
             <div class="hero-meta-item">
 
-              <strong>1996</strong>
+              <strong>
+                1996
+              </strong>
 
               <span>
                 National School
@@ -2202,6 +2373,7 @@
       <div class="container stats-grid">
 
         <div class="stat reveal">
+
           <span
             class="stat-number"
             data-count="1884"
@@ -2212,10 +2384,12 @@
           <span class="stat-label">
             Founded
           </span>
+
         </div>
 
 
         <div class="stat reveal">
+
           <span
             class="stat-number"
             data-count="1991"
@@ -2226,10 +2400,12 @@
           <span class="stat-label">
             College Status
           </span>
+
         </div>
 
 
         <div class="stat reveal">
+
           <span
             class="stat-number"
             data-count="1996"
@@ -2240,10 +2416,12 @@
           <span class="stat-label">
             National School
           </span>
+
         </div>
 
 
         <div class="stat reveal">
+
           <span class="stat-number">
             1–13
           </span>
@@ -2251,6 +2429,7 @@
           <span class="stat-label">
             Grades Offered
           </span>
+
         </div>
 
       </div>
@@ -2276,9 +2455,13 @@
           </div>
 
           <h2 class="section-title">
+
             A pioneer of
-            <span>Muslim education</span>
+            <span>
+              Muslim education
+            </span>
             in Sri Lanka.
+
           </h2>
 
           <p>
@@ -2333,11 +2516,13 @@
           </div>
 
           <div class="heritage-badge">
+
             <span>
               140+<br>
               YEARS<br>
               OF LEGACY
             </span>
+
           </div>
 
         </div>
@@ -2387,9 +2572,13 @@
           </div>
 
           <h2 class="section-title">
+
             From a pioneering
-            <span>school</span>
+            <span>
+              school
+            </span>
             to a national institution.
+
           </h2>
 
           <p>
@@ -2463,7 +2652,9 @@
           <p>
             The school was officially granted college status
             in 1991 and renamed
-            <strong>Hameed Al Husseinie College</strong>.
+            <strong>
+              Hameed Al Husseinie College
+            </strong>.
           </p>
 
           <p>
@@ -2498,8 +2689,12 @@
           </div>
 
           <h2 class="section-title">
+
             A century and more of
-            <span>progress.</span>
+            <span>
+              progress.
+            </span>
+
           </h2>
 
           <p class="section-intro">
@@ -2735,8 +2930,12 @@
           </div>
 
           <h2 class="section-title">
+
             A glimpse into
-            <span>our legacy.</span>
+            <span>
+              our legacy.
+            </span>
+
           </h2>
 
           <p class="section-intro">
@@ -2760,6 +2959,7 @@
             <div class="gallery-overlay">
 
               <div>
+
                 <span>
                   Heritage
                 </span>
@@ -2767,6 +2967,7 @@
                 <h3>
                   Hameedia Hall
                 </h3>
+
               </div>
 
             </div>
@@ -2789,6 +2990,7 @@
             <div class="gallery-overlay">
 
               <div>
+
                 <span>
                   Identity
                 </span>
@@ -2796,6 +2998,7 @@
                 <h3>
                   College Crest
                 </h3>
+
               </div>
 
             </div>
@@ -2813,6 +3016,7 @@
             <div class="gallery-overlay">
 
               <div>
+
                 <span>
                   History
                 </span>
@@ -2820,6 +3024,7 @@
                 <h3>
                   Founders' Heritage
                 </h3>
+
               </div>
 
             </div>
@@ -2851,8 +3056,12 @@
           </div>
 
           <h2 class="section-title">
+
             College
-            <span>information.</span>
+            <span>
+              information.
+            </span>
+
           </h2>
 
         </div>
@@ -2877,6 +3086,7 @@
               </div>
 
               <div>
+
                 <strong>
                   Address
                 </strong>
@@ -2885,6 +3095,7 @@
                   No. 45, Hussainiya Street,
                   Colombo 12, Sri Lanka
                 </span>
+
               </div>
 
             </div>
@@ -2897,6 +3108,7 @@
               </div>
 
               <div>
+
                 <strong>
                   Telephone
                 </strong>
@@ -2904,6 +3116,7 @@
                 <span>
                   +94 11 243 5266
                 </span>
+
               </div>
 
             </div>
@@ -2916,6 +3129,7 @@
               </div>
 
               <div>
+
                 <strong>
                   School Hours
                 </strong>
@@ -2924,6 +3138,7 @@
                   Monday to Friday,
                   7:30 a.m. – 2:00 p.m.
                 </span>
+
               </div>
 
             </div>
@@ -2936,6 +3151,7 @@
               </div>
 
               <div>
+
                 <strong>
                   Grades
                 </strong>
@@ -2943,6 +3159,7 @@
                 <span>
                   Grades 1 to 13
                 </span>
+
               </div>
 
             </div>
@@ -2955,6 +3172,7 @@
               </div>
 
               <div>
+
                 <strong>
                   College Colours
                 </strong>
@@ -2962,6 +3180,7 @@
                 <span>
                   Maroon · Golden Yellow · Green
                 </span>
+
               </div>
 
             </div>
@@ -3009,6 +3228,46 @@
             <div class="motto">
               “Seek Knowledge From Cradle To Grave.”
             </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SOCIAL MEDIA — ADDED
+        ================================================== -->
+
+        <div class="social-media reveal">
+
+          <h3>
+            Follow Our College
+          </h3>
+
+          <div class="social-links">
+
+            <a
+              href="https://www.facebook.com/Hameed-Al-Husseinie-College-226696200674833/"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="Hameed Al Husseinie College Facebook"
+            >
+              <span class="social-icon">📘</span>
+              Facebook
+            </a>
+
+
+            <a
+              href="https://www.linkedin.com/school/hameed-al-husseinie-college-colombo/"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="Hameed Al Husseinie College LinkedIn"
+            >
+              <span class="social-icon">💼</span>
+              LinkedIn
+            </a>
 
           </div>
 
@@ -3117,6 +3376,35 @@
 
           </ul>
 
+
+          <h4 style="margin-top:22px;">
+            Social Media
+          </h4>
+
+          <div class="footer-social">
+
+            <a
+              href="https://www.facebook.com/Hameed-Al-Husseinie-College-226696200674833/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              title="Facebook"
+            >
+              f
+            </a>
+
+            <a
+              href="https://www.linkedin.com/school/hameed-al-husseinie-college-colombo/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              in
+            </a>
+
+          </div>
+
         </div>
 
       </div>
@@ -3158,7 +3446,7 @@
   <script>
 
     /* =====================================================
-       LOADER
+       LOADER — 5 SECOND SPLASH
     ====================================================== */
 
     window.addEventListener("load", () => {
@@ -3169,7 +3457,7 @@
           .getElementById("loader")
           .classList.add("hide");
 
-      }, 650);
+      }, 5000);
 
     });
 
@@ -3314,7 +3602,8 @@
 
 
     revealElements.forEach(
-      element => revealObserver.observe(element)
+      element =>
+        revealObserver.observe(element)
     );
 
 
@@ -3398,4 +3687,4 @@
   </script>
 
 </body>
-  </html>
+</html>
