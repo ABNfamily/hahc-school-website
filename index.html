@@ -1,0 +1,3401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Hameed Al Husseinie College | Colombo</title>
+
+  <meta
+    name="description"
+    content="Hameed Al Husseinie College, Colombo — founded on 15 November 1884. Sri Lanka's first Muslim boys' school."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+      --maroon: #6b0f1a;
+      --maroon-dark: #3d080f;
+      --maroon-deep: #220407;
+
+      --gold: #d4a017;
+      --gold-light: #f5d77b;
+      --gold-pale: #fff0bd;
+
+      --green: #17633a;
+      --green-dark: #0d3c25;
+
+      --cream: #f8f3e9;
+      --cream-dark: #eee3d1;
+
+      --white: #ffffff;
+      --black: #11090a;
+
+      --text: #251719;
+      --muted: #756567;
+
+      --border: rgba(107, 15, 26, 0.12);
+
+      --shadow:
+        0 24px 70px rgba(34, 4, 7, 0.13);
+
+      --radius: 24px;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--maroon-deep);
+    }
+
+
+    /* =========================================================
+       PRELOADER
+    ========================================================= */
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: var(--maroon-deep);
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-inner {
+      text-align: center;
+      color: white;
+    }
+
+    .loader-logo {
+      width: 92px;
+      height: 92px;
+      margin: auto;
+
+      object-fit: contain;
+
+      animation: loaderPulse 1.7s infinite ease-in-out;
+    }
+
+    .loader-line {
+      width: 150px;
+      height: 2px;
+
+      margin: 22px auto 12px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--maroon),
+          var(--gold),
+          var(--green)
+        );
+
+      animation: loaderLine 1.4s infinite ease-in-out;
+    }
+
+    .loader-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    @keyframes loaderPulse {
+      0%,100% {
+        transform: scale(0.94);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes loaderLine {
+      0%,100% {
+        transform: scaleX(0.4);
+      }
+
+      50% {
+        transform: scaleX(1);
+      }
+    }
+
+
+    /* =========================================================
+       UTILITIES
+    ========================================================= */
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: var(--green);
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+
+      font-size: 0.72rem;
+
+      margin-bottom: 15px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(
+        2.1rem,
+        4vw,
+        3.5rem
+      );
+
+      line-height: 1.08;
+
+      color: var(--maroon-dark);
+
+      margin-bottom: 20px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+    }
+
+    .section-intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       TOP STRIP
+    ========================================================= */
+
+    .top-strip {
+      background:
+        linear-gradient(
+          90deg,
+          var(--maroon-deep),
+          var(--maroon),
+          var(--green-dark)
+        );
+
+      color: var(--gold-pale);
+
+      font-size: 0.78rem;
+
+      position: relative;
+      z-index: 100;
+    }
+
+    .top-strip-inner {
+      min-height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .top-strip span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold);
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+
+      background:
+        rgba(248, 243, 233, 0.88);
+
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(107,15,26,0.12);
+
+      transition:
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow:
+        0 12px 40px rgba(34,4,7,0.12);
+
+      background:
+        rgba(248,243,233,0.96);
+    }
+
+    .nav {
+      min-height: 84px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 57px;
+      height: 57px;
+
+      object-fit: contain;
+
+      flex-shrink: 0;
+
+      filter:
+        drop-shadow(
+          0 5px 12px rgba(68,14,3,.18)
+        );
+
+      transition: transform .4s ease;
+    }
+
+    .brand:hover .brand-logo {
+      transform: rotate(-4deg) scale(1.05);
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+
+      color: var(--maroon-dark);
+
+      font-size: 1.05rem;
+
+      line-height: 1.15;
+    }
+
+    .brand-name small {
+      display: block;
+
+      margin-top: 4px;
+
+      font-family: "DM Sans", sans-serif;
+
+      color: var(--green);
+
+      font-size: 0.62rem;
+
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
+
+      font-weight: 700;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      list-style: none;
+    }
+
+    .desktop-nav a {
+      position: relative;
+
+      padding: 9px 13px;
+
+      color: var(--maroon-dark);
+
+      font-size: 0.85rem;
+
+      font-weight: 700;
+
+      border-radius: 999px;
+
+      transition:
+        color .3s ease,
+        background .3s ease;
+    }
+
+    .desktop-nav a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      bottom: 4px;
+
+      width: 0;
+      height: 2px;
+
+      background: var(--gold);
+
+      transform: translateX(-50%);
+
+      transition: width .3s ease;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--maroon);
+    }
+
+    .desktop-nav a:hover::after {
+      width: 20px;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      background: var(--maroon);
+
+      color: white;
+
+      padding: 10px 17px;
+
+      border-radius: 999px;
+
+      font-size: .78rem;
+      font-weight: 700;
+
+      box-shadow:
+        0 10px 24px rgba(107,15,26,.22);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 15px 32px rgba(107,15,26,.28);
+    }
+
+    .menu-btn {
+      display: none;
+
+      border: 0;
+
+      width: 44px;
+      height: 44px;
+
+      border-radius: 12px;
+
+      background: var(--maroon);
+
+      color: white;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 760px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          115deg,
+          rgba(34,4,7,.96),
+          rgba(107,15,26,.78) 48%,
+          rgba(13,60,37,.72)
+        ),
+        url("hahc.jpg")
+        center / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(245,215,123,.18),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 20% 80%,
+          rgba(23,99,58,.25),
+          transparent 28%
+        );
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 550px;
+      height: 550px;
+
+      right: -220px;
+      top: -220px;
+
+      border: 1px solid rgba(245,215,123,.2);
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 50px rgba(245,215,123,.03),
+        0 0 0 100px rgba(245,215,123,.025);
+
+      animation: heroOrb 18s linear infinite;
+    }
+
+    @keyframes heroOrb {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 850px;
+
+      padding: 110px 0;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--gold-light);
+
+      font-size: .75rem;
+
+      font-weight: 700;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 20px;
+    }
+
+    .hero-kicker::before {
+      content: "";
+
+      width: 36px;
+      height: 2px;
+
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(
+        3.2rem,
+        8vw,
+        7rem
+      );
+
+      line-height: .94;
+
+      letter-spacing: -.04em;
+
+      max-width: 850px;
+
+      margin-bottom: 27px;
+    }
+
+    .hero h1 em {
+      color: var(--gold-light);
+
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      color: rgba(255,255,255,.82);
+
+      font-size: 1.08rem;
+
+      line-height: 1.8;
+
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 50px;
+
+      padding: 0 22px;
+
+      border-radius: 999px;
+
+      font-weight: 700;
+
+      font-size: .84rem;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+
+      color: var(--maroon-deep);
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 20px 42px rgba(0,0,0,.28);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.38);
+
+      color: white;
+
+      background:
+        rgba(255,255,255,.07);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--maroon);
+      transform: translateY(-3px);
+    }
+
+    .hero-meta {
+      margin-top: 70px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 28px;
+    }
+
+    .hero-meta-item {
+      border-left: 1px solid rgba(255,255,255,.25);
+
+      padding-left: 16px;
+    }
+
+    .hero-meta-item strong {
+      display: block;
+
+      color: var(--gold-light);
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.5rem;
+    }
+
+    .hero-meta-item span {
+      color: rgba(255,255,255,.65);
+
+      font-size: .73rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+    .hero-scroll {
+      position: absolute;
+
+      z-index: 4;
+
+      right: 35px;
+      bottom: 45px;
+
+      writing-mode: vertical-rl;
+
+      color: rgba(255,255,255,.65);
+
+      font-size: .68rem;
+
+      letter-spacing: .2em;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       BRAND LINE
+    ========================================================= */
+
+    .brand-line {
+      height: 7px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--maroon) 0 33%,
+          var(--gold) 33% 66%,
+          var(--green) 66% 100%
+        );
+    }
+
+
+    /* =========================================================
+       STATS
+    ========================================================= */
+
+    .stats-section {
+      background: var(--maroon-deep);
+
+      color: white;
+
+      padding: 38px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 1px;
+
+      background: rgba(255,255,255,.12);
+    }
+
+    .stat {
+      text-align: center;
+
+      padding: 24px;
+
+      background: var(--maroon-deep);
+
+      position: relative;
+    }
+
+    .stat-number {
+      display: block;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 2.2rem;
+
+      color: var(--gold);
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,.65);
+
+      font-size: .75rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+
+      font-size: 1rem;
+
+      margin-top: 15px;
+    }
+
+    .about-visual {
+      position: relative;
+
+      min-height: 510px;
+    }
+
+    .about-main-image {
+      position: absolute;
+
+      width: 78%;
+      height: 430px;
+
+      right: 0;
+      top: 0;
+
+      object-fit: cover;
+
+      border-radius: 28px;
+
+      box-shadow: var(--shadow);
+
+      border: 7px solid white;
+    }
+
+    .about-logo-card {
+      position: absolute;
+
+      left: 0;
+      bottom: 25px;
+
+      width: 190px;
+      height: 190px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--maroon),
+          var(--maroon-deep)
+        );
+
+      border: 5px solid var(--gold);
+
+      display: grid;
+      place-items: center;
+
+      box-shadow: var(--shadow);
+
+      z-index: 2;
+    }
+
+    .about-logo-card img {
+      width: 135px;
+      height: 135px;
+
+      object-fit: contain;
+    }
+
+    .heritage-badge {
+      position: absolute;
+
+      right: -15px;
+      bottom: 55px;
+
+      width: 130px;
+      height: 130px;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      color: var(--maroon-deep);
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.05rem;
+
+      line-height: 1.1;
+
+      box-shadow: var(--shadow);
+
+      z-index: 3;
+    }
+
+
+    /* =========================================================
+       HERITAGE
+    ========================================================= */
+
+    .heritage {
+      background:
+        linear-gradient(
+          135deg,
+          #efe3d1,
+          #f7f0e4
+        );
+    }
+
+    .heritage-grid {
+      display: grid;
+
+      grid-template-columns:
+        .85fr 1.15fr;
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .heritage-image {
+      height: 570px;
+
+      border-radius: 30px;
+
+      overflow: hidden;
+
+      position: relative;
+
+      box-shadow: var(--shadow);
+    }
+
+    .heritage-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: top;
+
+      transition: transform 1s ease;
+    }
+
+    .heritage-image:hover img {
+      transform: scale(1.04);
+    }
+
+    .heritage-image::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 50%,
+          rgba(34,4,7,.65)
+        );
+    }
+
+    .heritage-caption {
+      position: absolute;
+
+      left: 28px;
+      right: 28px;
+      bottom: 25px;
+
+      z-index: 2;
+
+      color: white;
+    }
+
+    .heritage-caption strong {
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.6rem;
+    }
+
+    .heritage-copy p {
+      color: var(--muted);
+
+      margin-top: 16px;
+    }
+
+    .heritage-highlight {
+      margin-top: 28px;
+
+      padding: 22px;
+
+      border-left: 4px solid var(--gold);
+
+      background: rgba(255,255,255,.65);
+
+      border-radius: 0 18px 18px 0;
+    }
+
+    .heritage-highlight strong {
+      display: block;
+
+      color: var(--maroon);
+
+      margin-bottom: 4px;
+    }
+
+
+    /* =========================================================
+       TIMELINE
+    ========================================================= */
+
+    .timeline-section {
+      background: var(--cream);
+    }
+
+    .timeline {
+      position: relative;
+
+      margin-top: 55px;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 0;
+      bottom: 0;
+
+      width: 2px;
+
+      background:
+        linear-gradient(
+          var(--maroon),
+          var(--gold),
+          var(--green)
+        );
+
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      width: 50%;
+
+      padding: 0 45px 45px;
+
+      position: relative;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+    }
+
+    .timeline-dot {
+      position: absolute;
+
+      top: 0;
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: var(--gold);
+
+      border: 3px solid var(--cream);
+
+      box-shadow:
+        0 0 0 2px var(--gold);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -7px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -7px;
+    }
+
+    .timeline-card {
+      background: white;
+
+      border-radius: 20px;
+
+      padding: 24px;
+
+      box-shadow:
+        0 12px 35px rgba(34,4,7,.07);
+
+      border: 1px solid var(--border);
+
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 20px 45px rgba(34,4,7,.12);
+    }
+
+    .timeline-year {
+      color: var(--maroon);
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.45rem;
+
+      margin-bottom: 5px;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+
+      font-size: .9rem;
+    }
+
+
+    /* =========================================================
+       CAMPUS / GALLERY
+    ========================================================= */
+
+    .gallery-section {
+      background:
+        var(--maroon-deep);
+
+      color: white;
+    }
+
+    .gallery-section .section-title {
+      color: white;
+    }
+
+    .gallery-section .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .gallery-section .section-intro {
+      color: rgba(255,255,255,.62);
+    }
+
+    .gallery {
+      margin-top: 45px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.2fr .8fr;
+
+      grid-template-rows:
+        250px 250px;
+
+      gap: 15px;
+    }
+
+    .gallery-card {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 22px;
+
+      background: #000;
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+    }
+
+    .gallery-card:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+
+      align-items: flex-end;
+
+      padding: 25px;
+
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(0,0,0,.82)
+        );
+    }
+
+    .gallery-overlay span {
+      color: var(--gold-light);
+
+      font-size: .72rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: .13em;
+    }
+
+    .gallery-overlay h3 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.4rem;
+
+      margin-top: 4px;
+    }
+
+
+    /* =========================================================
+       INFORMATION
+    ========================================================= */
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.2fr .8fr;
+
+      gap: 22px;
+    }
+
+    .info-card {
+      background: white;
+
+      padding: 34px;
+
+      border-radius: 24px;
+
+      box-shadow:
+        0 15px 45px rgba(34,4,7,.07);
+
+      border: 1px solid var(--border);
+    }
+
+    .info-card h3 {
+      font-family: "Playfair Display", serif;
+
+      color: var(--maroon);
+
+      font-size: 1.8rem;
+
+      margin-bottom: 20px;
+    }
+
+    .info-row {
+      display: flex;
+
+      gap: 18px;
+
+      padding: 17px 0;
+
+      border-bottom: 1px solid rgba(107,15,26,.09);
+    }
+
+    .info-row:last-child {
+      border-bottom: 0;
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(107,15,26,.08);
+
+      display: grid;
+      place-items: center;
+
+      color: var(--maroon);
+
+      flex-shrink: 0;
+    }
+
+    .info-row strong {
+      display: block;
+
+      color: var(--maroon-dark);
+
+      font-size: .82rem;
+    }
+
+    .info-row span {
+      color: var(--muted);
+
+      font-size: .9rem;
+    }
+
+    .legacy-card {
+      background:
+        linear-gradient(
+          145deg,
+          var(--maroon),
+          var(--maroon-deep)
+        );
+
+      color: white;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .legacy-card::after {
+      content: "1884";
+
+      position: absolute;
+
+      right: -20px;
+      bottom: -35px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 9rem;
+
+      color: rgba(255,255,255,.04);
+    }
+
+    .legacy-card h3 {
+      color: var(--gold-light);
+    }
+
+    .legacy-card p {
+      color: rgba(255,255,255,.68);
+
+      margin-bottom: 18px;
+    }
+
+    .motto {
+      margin-top: 28px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid rgba(255,255,255,.15);
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.35rem;
+
+      color: var(--gold-light);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: #170205;
+
+      color: white;
+
+      padding: 60px 0 25px;
+
+      border-top: 4px solid var(--gold);
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.2fr .8fr .8fr;
+
+      gap: 50px;
+
+      padding-bottom: 45px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      margin-bottom: 20px;
+    }
+
+    .footer-brand img {
+      width: 58px;
+      height: 58px;
+
+      object-fit: contain;
+    }
+
+    .footer-brand strong {
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.1rem;
+    }
+
+    footer p {
+      color: rgba(255,255,255,.58);
+
+      font-size: .87rem;
+    }
+
+    footer h4 {
+      color: var(--gold-light);
+
+      margin-bottom: 15px;
+
+      font-size: .8rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: .12em;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.6);
+
+      font-size: .85rem;
+
+      transition: color .25s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    .back-top {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 50%;
+
+      border: 0;
+
+      background: var(--gold);
+
+      color: var(--maroon-deep);
+
+      font-size: 1.1rem;
+
+      cursor: pointer;
+
+      z-index: 80;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(15px);
+
+      transition:
+        opacity .3s ease,
+        transform .3s ease,
+        visibility .3s ease;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — TABLET
+    ========================================================= */
+
+    @media (max-width: 980px) {
+
+      .desktop-nav,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-btn {
+        display: grid;
+        place-items: center;
+      }
+
+      .about-grid,
+      .heritage-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        max-width: 700px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .stats-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-card:first-child {
+        grid-row: auto;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE NAV
+    ========================================================= */
+
+    .mobile-menu {
+      position: fixed;
+
+      top: 0;
+      right: -100%;
+
+      width: min(340px, 88vw);
+      height: 100vh;
+
+      z-index: 200;
+
+      background:
+        linear-gradient(
+          160deg,
+          var(--maroon-deep),
+          var(--maroon)
+        );
+
+      color: white;
+
+      padding: 90px 30px 30px;
+
+      transition:
+        right .45s cubic-bezier(.2,.7,.2,1);
+
+      box-shadow:
+        -20px 0 60px rgba(0,0,0,.25);
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .mobile-close {
+      position: absolute;
+
+      top: 22px;
+      right: 22px;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid rgba(255,255,255,.2);
+
+      background: rgba(255,255,255,.08);
+
+      color: white;
+
+      border-radius: 12px;
+
+      cursor: pointer;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+    }
+
+    .mobile-menu li {
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .mobile-menu a {
+      display: block;
+
+      padding: 17px 0;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 1.45rem;
+
+      color: white;
+    }
+
+    .mobile-menu small {
+      display: block;
+
+      color: var(--gold-light);
+
+      margin-top: 40px;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+    }
+
+    .mobile-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(0,0,0,.45);
+
+      z-index: 190;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: .35s ease;
+    }
+
+    .mobile-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 680px) {
+
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .top-strip-inner {
+        justify-content: center;
+        text-align: center;
+
+        min-height: 34px;
+      }
+
+      .top-strip span:last-child {
+        display: none;
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-name {
+        font-size: .9rem;
+      }
+
+      .brand-name small {
+        font-size: .53rem;
+      }
+
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero-content {
+        padding: 85px 0;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(
+            2.8rem,
+            14vw,
+            4.3rem
+          );
+      }
+
+      .hero-description {
+        font-size: .96rem;
+      }
+
+      .hero-meta {
+        margin-top: 50px;
+
+        gap: 18px;
+      }
+
+      .hero-meta-item strong {
+        font-size: 1.25rem;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat {
+        padding: 20px 10px;
+      }
+
+      .stat-number {
+        font-size: 1.7rem;
+      }
+
+      .about-visual {
+        min-height: 390px;
+      }
+
+      .about-main-image {
+        width: 82%;
+        height: 310px;
+      }
+
+      .about-logo-card {
+        width: 135px;
+        height: 135px;
+
+        bottom: 0;
+      }
+
+      .about-logo-card img {
+        width: 95px;
+        height: 95px;
+      }
+
+      .heritage-badge {
+        width: 95px;
+        height: 95px;
+
+        font-size: .82rem;
+
+        right: 0;
+        bottom: 15px;
+      }
+
+      .heritage-image {
+        height: 420px;
+      }
+
+      .timeline::before {
+        left: 9px;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding-left: 35px;
+        padding-right: 0;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 2px;
+        right: auto;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+          270px
+          210px
+          210px;
+      }
+
+      .gallery-card:first-child {
+        grid-row: auto;
+      }
+
+      .info-card {
+        padding: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       LOADER
+  ======================================================== -->
+
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+
+      <img
+        src="HAHC.png"
+        alt="Hameed Al Husseinie College"
+        class="loader-logo"
+      />
+
+      <div class="loader-line"></div>
+
+      <div class="loader-text">
+        Hameed Al Husseinie College
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =======================================================
+       TOP BAR
+  ======================================================== -->
+
+  <div class="top-strip">
+
+    <div class="container top-strip-inner">
+
+      <span>
+        <i class="top-dot"></i>
+        Sri Lanka's First Muslim Boys' School
+      </span>
+
+      <span>
+        Est. 15 November 1884
+      </span>
+
+      <span>
+        No. 45, Hussainiya Street, Colombo 12
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header id="header">
+
+    <div class="container nav">
+
+      <a href="#home" class="brand">
+
+        <img
+          src="HAHC.png"
+          alt="Hameed Al Husseinie College crest"
+          class="brand-logo"
+        />
+
+        <div class="brand-name">
+          Hameed Al Husseinie College
+
+          <small>
+            National School · Colombo
+          </small>
+        </div>
+
+      </a>
+
+
+      <ul class="desktop-nav">
+
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#heritage">Heritage</a>
+        </li>
+
+        <li>
+          <a href="#timeline">Timeline</a>
+        </li>
+
+        <li>
+          <a href="#campus">Campus</a>
+        </li>
+
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+
+      </ul>
+
+
+      <a href="#contact" class="nav-cta">
+        Visit College →
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
+
+  <div
+    class="mobile-overlay"
+    id="mobileOverlay"
+  ></div>
+
+  <aside
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <button
+      class="mobile-close"
+      id="mobileClose"
+      aria-label="Close menu"
+    >
+      ✕
+    </button>
+
+    <ul>
+
+      <li>
+        <a href="#home">Home</a>
+      </li>
+
+      <li>
+        <a href="#about">About</a>
+      </li>
+
+      <li>
+        <a href="#heritage">Heritage</a>
+      </li>
+
+      <li>
+        <a href="#timeline">Timeline</a>
+      </li>
+
+      <li>
+        <a href="#campus">Campus</a>
+      </li>
+
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+
+    </ul>
+
+    <small>
+      Seek Knowledge From Cradle To Grave
+    </small>
+
+  </aside>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main>
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="container">
+
+        <div class="hero-content reveal">
+
+          <div class="hero-kicker">
+            Since 1884 · 140+ Years of Legacy
+          </div>
+
+          <h1>
+            A Legacy Built
+            <em>For Generations.</em>
+          </h1>
+
+          <p class="hero-description">
+            Hameed Al Husseinie College stands as a historic
+            institution of Muslim education in Sri Lanka —
+            shaping generations through knowledge, faith,
+            discipline and service.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#heritage"
+              class="btn btn-primary"
+            >
+              Explore Our Heritage
+              <span>→</span>
+            </a>
+
+            <a
+              href="#contact"
+              class="btn btn-outline"
+            >
+              College Information
+            </a>
+
+          </div>
+
+
+          <div class="hero-meta">
+
+            <div class="hero-meta-item">
+
+              <strong>1884</strong>
+
+              <span>
+                Founded
+              </span>
+
+            </div>
+
+
+            <div class="hero-meta-item">
+
+              <strong>1991</strong>
+
+              <span>
+                College Status
+              </span>
+
+            </div>
+
+
+            <div class="hero-meta-item">
+
+              <strong>1996</strong>
+
+              <span>
+                National School
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-scroll">
+        Scroll to explore
+      </div>
+
+    </section>
+
+
+    <div class="brand-line"></div>
+
+
+    <!-- =====================================================
+         STATS
+    ====================================================== -->
+
+    <section class="stats-section">
+
+      <div class="container stats-grid">
+
+        <div class="stat reveal">
+          <span
+            class="stat-number"
+            data-count="1884"
+          >
+            1884
+          </span>
+
+          <span class="stat-label">
+            Founded
+          </span>
+        </div>
+
+
+        <div class="stat reveal">
+          <span
+            class="stat-number"
+            data-count="1991"
+          >
+            1991
+          </span>
+
+          <span class="stat-label">
+            College Status
+          </span>
+        </div>
+
+
+        <div class="stat reveal">
+          <span
+            class="stat-number"
+            data-count="1996"
+          >
+            1996
+          </span>
+
+          <span class="stat-label">
+            National School
+          </span>
+        </div>
+
+
+        <div class="stat reveal">
+          <span class="stat-number">
+            1–13
+          </span>
+
+          <span class="stat-label">
+            Grades Offered
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+      class="section"
+      id="about"
+    >
+
+      <div class="container about-grid">
+
+        <div class="about-copy reveal">
+
+          <div class="eyebrow">
+            About the College
+          </div>
+
+          <h2 class="section-title">
+            A pioneer of
+            <span>Muslim education</span>
+            in Sri Lanka.
+          </h2>
+
+          <p>
+            Hameed Al Husseinie College began as a school
+            named <em>Al Madrasathul Khairiyyathul Islamiah</em>.
+            It was founded by Marhoom Sidde Lebbe,
+            Marhoom Wapichi Marikkar and Ahmed Urabi Pasha.
+          </p>
+
+          <p>
+            At the opening ceremony on
+            <strong>15 November 1884</strong> —
+            the first Muslim school in Sri Lanka —
+            Ahmed Orabi spoke on the importance of the
+            new school to the country's Muslim community.
+          </p>
+
+          <p>
+            Many families were at first unwilling to join
+            the modern education system of the 19th century.
+            Most schools were run by Christian missionaries,
+            and conservative parents feared that English
+            education might draw their children away from
+            their faith.
+          </p>
+
+          <p>
+            Siddi Lebbe therefore worked to establish
+            separate schools for Muslims. That dream became
+            real in November 1884 with the first Muslim
+            English school in the country.
+          </p>
+
+        </div>
+
+
+        <div class="about-visual reveal">
+
+          <img
+            src="hahc.jpg"
+            alt="Hameed Al Husseinie College heritage building"
+            class="about-main-image"
+          />
+
+          <div class="about-logo-card">
+
+            <img
+              src="HAHC.png"
+              alt="College crest"
+            />
+
+          </div>
+
+          <div class="heritage-badge">
+            <span>
+              140+<br>
+              YEARS<br>
+              OF LEGACY
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HERITAGE
+    ====================================================== -->
+
+    <section
+      class="section heritage"
+      id="heritage"
+    >
+
+      <div class="container heritage-grid">
+
+        <figure class="heritage-image reveal">
+
+          <img
+            src="ss.jpg"
+            alt="Historical leader associated with Hameed Al Husseinie College"
+          />
+
+          <figcaption class="heritage-caption">
+
+            <span>
+              OUR HERITAGE
+            </span>
+
+            <strong>
+              A story carried through generations.
+            </strong>
+
+          </figcaption>
+
+        </figure>
+
+
+        <div class="heritage-copy reveal">
+
+          <div class="eyebrow">
+            Our Heritage
+          </div>
+
+          <h2 class="section-title">
+            From a pioneering
+            <span>school</span>
+            to a national institution.
+          </h2>
+
+          <p>
+            In 1901, Noordeen Hadjiar, trustee of the Grand
+            Mosque of Colombo, built a new building for the
+            school with his own funds as a monument to the
+            Silver Jubilee of Abdul Hamid II, the Ottoman Sultan.
+            The school was renamed
+            <strong>Al Madrasathul Hameediah</strong>.
+          </p>
+
+          <p>
+            In 1921 the school was again renamed
+            <strong>Hameediah Boys' English School</strong>.
+          </p>
+
+          <p>
+            Members of the Ceylon Moslem Educational Society
+            later acquired the property at
+            <strong>45 Husseiniya Street</strong>.
+            The school eventually became known as
+            <strong>Husseinie Boys' English School</strong>.
+          </p>
+
+          <p>
+            In 1961 the neighbouring schools were amalgamated
+            under the name
+            <strong>Hameed Al Husseinie Maha Vidyalaya</strong>
+            by Badiudin Mahmud, Minister of Education.
+          </p>
+
+          <div class="heritage-highlight">
+
+            <strong>
+              A defining milestone
+            </strong>
+
+            <span>
+              On 26 July 1996, Hameed Al Husseinie College
+              was elevated to National School status.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="container"
+        style="margin-top:70px;"
+      >
+
+        <div class="about-copy reveal">
+
+          <p>
+            On 29 August 1972, government ministers
+            Pieter Keuneman and Badiudin Mahmud visited
+            the school and unveiled a new five-storey
+            building block and a three-storey science section.
+            Those buildings were completed in 1982.
+          </p>
+
+          <p>
+            Prime Minister Ranasinghe Premadasa declared
+            them open on 3 June 1982, at the invitation of
+            Minister of Education Ranil Wickremesinghe.
+          </p>
+
+          <p>
+            The school was officially granted college status
+            in 1991 and renamed
+            <strong>Hameed Al Husseinie College</strong>.
+          </p>
+
+          <p>
+            To mark the school's 125th year, a Rs. 5 stamp
+            was released on 30 July 2009 at the college premises.
+            A commemorative walk for the 140th year was held
+            on 4 January 2025.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TIMELINE
+    ====================================================== -->
+
+    <section
+      class="section timeline-section"
+      id="timeline"
+    >
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Milestones
+          </div>
+
+          <h2 class="section-title">
+            A century and more of
+            <span>progress.</span>
+          </h2>
+
+          <p class="section-intro">
+            Explore the major milestones that shaped
+            Hameed Al Husseinie College from its beginnings
+            in 1884 to the present day.
+          </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1884
+              </div>
+
+              <p>
+                Al Madrasathul Khairiyyathul Islamiah opens
+                on 15 November — the first Muslim school
+                in Sri Lanka.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1901
+              </div>
+
+              <p>
+                New building funded by Noordeen Hadjiar;
+                school renamed Al Madrasathul Hameediah.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1919
+              </div>
+
+              <p>
+                Husseinie Boys' English School established
+                at 45 Husseiniya Street.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1921
+              </div>
+
+              <p>
+                Renamed Hameediah Boys' English School.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1961
+              </div>
+
+              <p>
+                Amalgamated as Hameed Al Husseinie
+                Maha Vidyalaya.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1972–1982
+              </div>
+
+              <p>
+                New multi-storey academic and science
+                blocks unveiled and opened.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1991
+              </div>
+
+              <p>
+                Granted college status and renamed
+                Hameed Al Husseinie College.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                1996
+              </div>
+
+              <p>
+                Elevated to National School on 26 July.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                2009
+              </div>
+
+              <p>
+                125th anniversary commemorative stamp released.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+              <div class="timeline-year">
+                2025
+              </div>
+
+              <p>
+                140th year commemorative walk held
+                on 4 January.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CAMPUS
+    ====================================================== -->
+
+    <section
+      class="section gallery-section"
+      id="campus"
+    >
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Campus
+          </div>
+
+          <h2 class="section-title">
+            A glimpse into
+            <span>our legacy.</span>
+          </h2>
+
+          <p class="section-intro">
+            From the college crest to its historic buildings,
+            every element reflects the identity of generations
+            of Hameedians.
+          </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+          <div class="gallery-card reveal">
+
+            <img
+              src="hahc.jpg"
+              alt="Hameedia Hall"
+            />
+
+            <div class="gallery-overlay">
+
+              <div>
+                <span>
+                  Heritage
+                </span>
+
+                <h3>
+                  Hameedia Hall
+                </h3>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="gallery-card reveal">
+
+            <img
+              src="HAHC.png"
+              alt="College crest"
+              style="
+                object-fit:contain;
+                background:#050505;
+                padding:30px;
+              "
+            />
+
+            <div class="gallery-overlay">
+
+              <div>
+                <span>
+                  Identity
+                </span>
+
+                <h3>
+                  College Crest
+                </h3>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="gallery-card reveal">
+
+            <img
+              src="ss.jpg"
+              alt="College heritage"
+            />
+
+            <div class="gallery-overlay">
+
+              <div>
+                <span>
+                  History
+                </span>
+
+                <h3>
+                  Founders' Heritage
+                </h3>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT / INFORMATION
+    ====================================================== -->
+
+    <section
+      class="section"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Visit Us
+          </div>
+
+          <h2 class="section-title">
+            College
+            <span>information.</span>
+          </h2>
+
+        </div>
+
+
+        <div
+          class="info-grid"
+          style="margin-top:40px;"
+        >
+
+          <div class="info-card reveal">
+
+            <h3>
+              Hameed Al Husseinie College
+            </h3>
+
+
+            <div class="info-row">
+
+              <div class="info-icon">
+                📍
+              </div>
+
+              <div>
+                <strong>
+                  Address
+                </strong>
+
+                <span>
+                  No. 45, Hussainiya Street,
+                  Colombo 12, Sri Lanka
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-icon">
+                ☎
+              </div>
+
+              <div>
+                <strong>
+                  Telephone
+                </strong>
+
+                <span>
+                  +94 11 243 5266
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-icon">
+                🕘
+              </div>
+
+              <div>
+                <strong>
+                  School Hours
+                </strong>
+
+                <span>
+                  Monday to Friday,
+                  7:30 a.m. – 2:00 p.m.
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-icon">
+                🎓
+              </div>
+
+              <div>
+                <strong>
+                  Grades
+                </strong>
+
+                <span>
+                  Grades 1 to 13
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+              <div class="info-icon">
+                🎨
+              </div>
+
+              <div>
+                <strong>
+                  College Colours
+                </strong>
+
+                <span>
+                  Maroon · Golden Yellow · Green
+                </span>
+              </div>
+
+            </div>
+
+
+            <div style="margin-top:25px;">
+
+              <a
+                class="btn btn-primary"
+                href="https://www.google.com/maps/search/Hameed+Al+Husseinie+College+Colombo"
+                target="_blank"
+                rel="noopener"
+              >
+                Open in Google Maps →
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="info-card legacy-card reveal">
+
+            <h3>
+              A living legacy.
+            </h3>
+
+            <p>
+              Hameed Al Husseinie College is an Islamic
+              national school for boys, offering Grades
+              1 to 13.
+            </p>
+
+            <p>
+              Alumni are known as Hameedians or
+              Old Hameedians.
+            </p>
+
+            <p>
+              For more than a century, the institution
+              has remained connected to the educational
+              journey of generations of students.
+            </p>
+
+            <div class="motto">
+              “Seek Knowledge From Cradle To Grave.”
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <div class="footer-brand">
+
+            <img
+              src="HAHC.png"
+              alt="Hameed Al Husseinie College"
+            />
+
+            <strong>
+              Hameed Al Husseinie College
+            </strong>
+
+          </div>
+
+          <p>
+            Sri Lanka's first Muslim boys' school,
+            established on 15 November 1884.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Explore
+          </h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="#about">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#heritage">
+                Heritage
+              </a>
+            </li>
+
+            <li>
+              <a href="#timeline">
+                Timeline
+              </a>
+            </li>
+
+            <li>
+              <a href="#campus">
+                Campus
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Contact
+          </h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="#contact">
+                College Information
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.google.com/maps/search/Hameed+Al+Husseinie+College+Colombo"
+                target="_blank"
+                rel="noopener"
+              >
+                Google Maps
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © 2026 Hameed Al Husseinie College, Colombo.
+          All rights reserved.
+        </p>
+
+        <p>
+          Est. 1884 · Hameedians
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- BACK TO TOP -->
+
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =====================================================
+       LOADER
+    ====================================================== */
+
+    window.addEventListener("load", () => {
+
+      setTimeout(() => {
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      }, 650);
+
+    });
+
+
+    /* =====================================================
+       HEADER SCROLL
+    ====================================================== */
+
+    const header =
+      document.getElementById("header");
+
+    const backTop =
+      document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 40) {
+
+        header.classList.add("scrolled");
+        backTop.classList.add("show");
+
+      } else {
+
+        header.classList.remove("scrolled");
+        backTop.classList.remove("show");
+
+      }
+
+    });
+
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    backTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    const mobileClose =
+      document.getElementById("mobileClose");
+
+    const mobileOverlay =
+      document.getElementById("mobileOverlay");
+
+
+    function openMobileMenu() {
+
+      mobileMenu.classList.add("open");
+      mobileOverlay.classList.add("show");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeMobileMenu() {
+
+      mobileMenu.classList.remove("open");
+      mobileOverlay.classList.remove("show");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    menuBtn.addEventListener(
+      "click",
+      openMobileMenu
+    );
+
+    mobileClose.addEventListener(
+      "click",
+      closeMobileMenu
+    );
+
+    mobileOverlay.addEventListener(
+      "click",
+      closeMobileMenu
+    );
+
+
+    document
+      .querySelectorAll(".mobile-menu a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          closeMobileMenu
+        );
+
+      });
+
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ====================================================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach(
+      element => revealObserver.observe(element)
+    );
+
+
+    /* =====================================================
+       HERO PARALLAX
+    ====================================================== */
+
+    const hero =
+      document.querySelector(".hero");
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (
+          window.innerWidth > 800 &&
+          window.scrollY < 850
+        ) {
+
+          hero.style.backgroundPosition =
+            `center ${window.scrollY * 0.18}px`;
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       NAV ACTIVE STATE
+    ====================================================== */
+
+    const sections =
+      document.querySelectorAll("main section[id]");
+
+    const navLinks =
+      document.querySelectorAll(".desktop-nav a");
+
+
+    const sectionObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              navLinks.forEach(link => {
+
+                link.style.color = "";
+
+                if (
+                  link.getAttribute("href") ===
+                  "#" + entry.target.id
+                ) {
+
+                  link.style.color =
+                    "var(--maroon)";
+
+                }
+
+              });
+
+            }
+
+          });
+
+        },
+        {
+          rootMargin: "-30% 0px -60% 0px"
+        }
+      );
+
+
+    sections.forEach(
+      section =>
+        sectionObserver.observe(section)
+    );
+
+
+  </script>
+
+</body>
+  </html>
