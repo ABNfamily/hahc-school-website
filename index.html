@@ -24,6 +24,453 @@
 
   <style>
 
+    
+/* =========================================================
+   HAHC 2026 — CRYSTAL LIQUID GLASS UI UPGRADE
+   Original colours and content preserved
+========================================================= */
+
+:root {
+  --glass-white: rgba(255, 255, 255, 0.13);
+  --glass-border: rgba(255, 255, 255, 0.30);
+  --glass-shadow: 0 18px 55px rgba(34, 4, 7, 0.12);
+  --glass-blur: blur(24px) saturate(160%);
+}
+
+/* Smooth premium scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Crystal-glass navigation */
+header {
+  background: rgba(248, 243, 233, 0.70);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px rgba(34, 4, 7, 0.045);
+}
+
+header.scrolled {
+  background: rgba(248, 243, 233, 0.82);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  backdrop-filter: blur(32px) saturate(190%);
+  box-shadow: 0 12px 38px rgba(34, 4, 7, 0.10);
+}
+
+/* Premium glass navigation links */
+.desktop-nav a {
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.desktop-nav a:hover {
+  background: rgba(107, 15, 26, 0.075);
+  transform: translateY(-1px);
+}
+
+.desktop-nav a::after {
+  border-radius: 99px;
+}
+
+/* Crystal buttons */
+.btn,
+.nav-cta,
+.social-link {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  transition:
+    transform .35s cubic-bezier(.2,.7,.2,1),
+    box-shadow .35s ease,
+    background .35s ease,
+    border-color .35s ease;
+}
+
+.btn::before,
+.nav-cta::before,
+.social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255,255,255,.30),
+    transparent 42%,
+    rgba(255,255,255,.06)
+  );
+  opacity: .8;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn-primary {
+  background: rgba(212, 160, 23, .91);
+  border-color: rgba(255, 240, 189, .75);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.55),
+    0 8px 22px rgba(107,15,26,.12),
+    0 18px 38px rgba(34,4,7,.10);
+}
+
+.btn-primary:hover {
+  background: rgba(245, 215, 123, .97);
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.8),
+    0 18px 40px rgba(107,15,26,.20);
+}
+
+.btn-outline {
+  background: rgba(255,255,255,.105);
+  border: 1px solid rgba(255,255,255,.50);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.20),
+    0 8px 25px rgba(0,0,0,.08);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,.20);
+  border-color: rgba(255,255,255,.75);
+  box-shadow: 0 14px 35px rgba(0,0,0,.14);
+}
+
+.nav-cta {
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.22),
+    0 10px 28px rgba(107,15,26,.19);
+}
+
+.nav-cta:hover {
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.3),
+    0 16px 36px rgba(107,15,26,.26);
+}
+
+/* Frosted glass mobile menu button */
+.menu-btn {
+  border: 1px solid rgba(255,255,255,.3);
+  background: rgba(107,15,26,.90);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.2),
+    0 8px 20px rgba(34,4,7,.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 26px rgba(34,4,7,.2);
+}
+
+/* Glass effect on statistic panels */
+.stat {
+  transition: background .35s ease;
+}
+
+.stat:hover {
+  background: rgba(107,15,26,.88);
+}
+
+/* Floating glass cards */
+.timeline-card,
+.info-card,
+.sports-side-card,
+.sports-history-card,
+.sports-video,
+.social-media,
+.sports-legacy-copy {
+  border: 1px solid rgba(255,255,255,.76);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.75),
+    0 10px 35px rgba(34,4,7,.055);
+  transition:
+    transform .4s cubic-bezier(.2,.7,.2,1),
+    box-shadow .4s ease,
+    border-color .4s ease;
+}
+
+.timeline-card:hover,
+.sports-history-card:hover,
+.sports-video:hover {
+  transform: translateY(-7px);
+  border-color: rgba(212,160,23,.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    0 22px 55px rgba(34,4,7,.12);
+}
+
+.info-card,
+.sports-side-card,
+.social-media,
+.sports-legacy-copy {
+  background: rgba(255,255,255,.76);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* Image frames with premium depth */
+.about-main-image,
+.heritage-image,
+.gallery-card,
+.sports-photo-card {
+  border: 1px solid rgba(255,255,255,.45);
+  box-shadow:
+    0 18px 45px rgba(34,4,7,.12),
+    inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+.about-main-image {
+  transition:
+    transform .6s cubic-bezier(.2,.7,.2,1),
+    box-shadow .6s ease;
+}
+
+.about-main-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 65px rgba(34,4,7,.17);
+}
+
+.gallery-card,
+.sports-photo-card {
+  isolation: isolate;
+  background-color: var(--maroon-deep);
+}
+
+.gallery-card img,
+.sports-photo-card img {
+  transition:
+    transform .8s cubic-bezier(.2,.7,.2,1),
+    filter .5s ease;
+}
+
+.gallery-card:hover img,
+.sports-photo-card:hover img {
+  transform: scale(1.055);
+  filter: saturate(1.08);
+}
+
+/* Premium sports feature panels */
+.sports-feature-card,
+.sports-swimming,
+.sports-legacy-card {
+  border: 1px solid rgba(255,255,255,.17);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.13),
+    0 22px 60px rgba(34,4,7,.14);
+}
+
+.sports-achievement {
+  background: rgba(255,255,255,.085);
+  border: 1px solid rgba(255,255,255,.16);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+}
+
+.sports-achievement:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.13);
+  border-color: rgba(245,215,123,.42);
+}
+
+.sports-list li {
+  border: 1px solid rgba(107,15,26,.055);
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.sports-list li:hover {
+  transform: translateY(-3px);
+  background: rgba(212,160,23,.13);
+  box-shadow: 0 7px 18px rgba(34,4,7,.055);
+}
+
+/* Glass-like chips */
+.swimming-names span {
+  border: 1px solid rgba(255,255,255,.13);
+  background: rgba(255,255,255,.09);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Video cards */
+.sports-video {
+  overflow: hidden;
+}
+
+.sports-video-frame {
+  overflow: hidden;
+  background: var(--maroon-deep);
+}
+
+.sports-video-content {
+  background: rgba(255,255,255,.88);
+}
+
+/* Frosted-glass social buttons */
+.social-link {
+  background: rgba(248,243,233,.7);
+  border-color: rgba(107,15,26,.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.social-link:hover {
+  background: rgba(107,15,26,.92);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(107,15,26,.20);
+}
+
+/* Glass footer social icons */
+.footer-social a {
+  background: rgba(255,255,255,.035);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+}
+
+.footer-social a:hover {
+  border-color: rgba(245,215,123,.65);
+  box-shadow: 0 8px 22px rgba(212,160,23,.15);
+}
+
+/* Floating glass back-to-top button */
+.back-top {
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(212,160,23,.83);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.6),
+    0 10px 30px rgba(34,4,7,.17);
+}
+
+.back-top:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 15px 35px rgba(34,4,7,.22);
+}
+
+/* Softer, premium selection and focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* Crystal glass mobile navigation */
+.mobile-menu {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34,4,7,.94),
+      rgba(107,15,26,.91)
+    );
+  -webkit-backdrop-filter: blur(32px) saturate(150%);
+  backdrop-filter: blur(32px) saturate(150%);
+  border-left: 1px solid rgba(255,255,255,.18);
+  box-shadow: -25px 0 70px rgba(0,0,0,.24);
+}
+
+.mobile-overlay {
+  background: rgba(17,9,10,.42);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.mobile-menu li {
+  border-bottom-color: rgba(255,255,255,.12);
+}
+
+.mobile-menu a {
+  transition:
+    padding-left .3s ease,
+    color .3s ease;
+}
+
+.mobile-menu a:hover {
+  padding-left: 9px;
+  color: var(--gold-light);
+}
+
+/* Smooth entrance for glass cards */
+@media (prefers-reduced-motion: no-preference) {
+  .sports-feature-card,
+  .sports-side-card,
+  .sports-swimming,
+  .sports-legacy-card,
+  .sports-legacy-copy,
+  .info-card,
+  .social-media {
+    transition:
+      transform .4s cubic-bezier(.2,.7,.2,1),
+      box-shadow .4s ease;
+  }
+}
+
+/* Mobile polish */
+@media (max-width: 680px) {
+  .btn,
+  .nav-cta,
+  .social-link {
+    min-height: 49px;
+  }
+
+  .sports-feature-card,
+  .sports-side-card,
+  .sports-swimming,
+  .sports-legacy-card,
+  .sports-legacy-copy {
+    border-radius: 23px;
+  }
+
+  .timeline-card,
+  .info-card,
+  .sports-history-card,
+  .sports-video {
+    border-radius: 19px;
+  }
+
+  .about-main-image {
+    border-radius: 23px;
+  }
+
+  .back-top {
+    right: 17px;
+    bottom: 17px;
+  }
+}
+
+/* Keep motion accessible */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
     /* =========================================================
        ROOT
     ========================================================= */
