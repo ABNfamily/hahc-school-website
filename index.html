@@ -2725,79 +2725,73 @@
 
   <script>
 
-    /* =====================================================
-       WATER LIQUID AUDIO SYNTHESIZER (NO EXTERNAL FILES)
-    ====================================================== */
-    let audioCtx = null;
+/* =====================================================
+   HEAVY CLICK + LIQUID PUNCH AUDIO SYNTHESIZER
+====================================================== */
+let audioCtx = null;
 
-    function initAudio() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-    }
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}
 
-    // Play a gentle liquid bubble / wobble sound on click
-    function playLiquidBubbleSound() {
-      try {
-        initAudio();
-        if (!audioCtx) return;
+// Heavy mechanical click sound combined with water punch
+function playHeavyClickSound() {
+  try {
+    initAudio();
+    if (!audioCtx) return;
 
-        let osc = audioCtx.createOscillator();
-        let gain = audioCtx.createGain();
+    let now = audioCtx.currentTime;
 
-        osc.type = 'sine';
-        // Frequency sweep mimicking water droplet / wobble
-        osc.frequency.setValueAtTime(320, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.12);
+    // 1. High Frequency Crisp Mechanical Click
+    let clickOsc = audioCtx.createOscillator();
+    let clickGain = audioCtx.createGain();
+    
+    clickOsc.type = 'triangle';
+    clickOsc.frequency.setValueAtTime(1200, now);
+    clickOsc.frequency.exponentialRampToValueAtTime(150, now + 0.05);
 
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+    clickGain.gain.setValueAtTime(0.4, now);
+    clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
 
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
+    clickOsc.connect(clickGain);
+    clickGain.connect(audioCtx.destination);
 
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.12);
-      } catch (e) {
-        // Audio context safety catch
-      }
-    }
+    clickOsc.start(now);
+    clickOsc.stop(now + 0.05);
 
-    // Attach click audio to buttons and interactive links
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('a, button')) {
-        playLiquidBubbleSound();
-      }
-    });
+    // 2. Heavy Low-Frequency Liquid Punch (Sub-bass drop)
+    let punchOsc = audioCtx.createOscillator();
+    let punchGain = audioCtx.createGain();
 
-    // Subtle scroll water slosh sound (throttled)
-    let lastScrollSound = 0;
-    window.addEventListener('scroll', () => {
-      let now = Date.now();
-      if (now - lastScrollSound > 350 && Math.abs(window.scrollY - lastScrollSound) > 80) {
-        try {
-          initAudio();
-          if (!audioCtx) return;
-          let osc = audioCtx.createOscillator();
-          let gain = audioCtx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(90, audioCtx.currentTime);
-          osc.frequency.linearRampToValueAtTime(60, audioCtx.currentTime + 0.08);
+    punchOsc.type = 'sine';
+    punchOsc.frequency.setValueAtTime(280, now);
+    punchOsc.frequency.exponentialRampToValueAtTime(45, now + 0.15);
 
-          gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-          gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+    punchGain.gain.setValueAtTime(0.5, now);
+    punchGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
 
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 0.08);
-        } catch (e) {}
-        lastScrollSound = now;
-      }
-    });
+    punchOsc.connect(punchGain);
+    punchGain.connect(audioCtx.destination);
+
+    punchOsc.start(now);
+    punchOsc.stop(now + 0.15);
+
+  } catch (e) {
+    // Audio safety catch
+  }
+}
+
+// Attach heavy click sound to all buttons and links
+document.addEventListener('click', (e) => {
+  if (e.target.closest('a, button, .glass-card, .sports-history-card')) {
+    playHeavyClickSound();
+  }
+});
 
 
     /* =====================================================
